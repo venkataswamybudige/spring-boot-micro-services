@@ -1,4 +1,4 @@
-package com.venkat.microservices.limits_service;
+package com.venkat.microservices.limitsservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
