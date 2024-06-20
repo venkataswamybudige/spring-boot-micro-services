@@ -1,23 +1,23 @@
 package com.venkat.microservices.limitsservice.bean;
 
 public class Limits {
-    private int minumum;
+    private int minimum;
     private int maximum;
 
     public Limits() {
     }
 
     public Limits(int minumum, int maximum) {
-        this.minumum = minumum;
+        this.minimum = minumum;
         this.maximum = maximum;
     }
 
-    public int getMinumum() {
-        return minumum;
+    public int getMinimum() {
+        return minimum;
     }
 
-    public void setMinumum(int minumum) {
-        this.minumum = minumum;
+    public void setMinimum(int minimum) {
+        this.minimum = minimum;
     }
 
     public int getMaximum() {

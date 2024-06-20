@@ -7,15 +7,15 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties("limits-service")
 public class Configuration {
-    private int minumum;
+    private int minimum;
     private int maximum;
 
-    public int getMinumum() {
-        return minumum;
+    public int getMinimum() {
+        return minimum;
     }
 
-    public void setMinumum(int minumum) {
-        this.minumum = minumum;
+    public void setMinimum(int minimum) {
+        this.minimum = minimum;
     }
 
     public int getMaximum() {
