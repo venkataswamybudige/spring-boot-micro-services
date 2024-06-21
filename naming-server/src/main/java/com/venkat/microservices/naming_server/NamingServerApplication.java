@@ -1,17 +1,16 @@
-package com.venkat.microservices.currency_conversion_service;
+package com.venkat.microservices.naming_server;
 
+import jdk.jfr.Enabled;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients
 @EnableEurekaServer
-public class CurrencyConversionServiceApplication {
+public class NamingServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CurrencyConversionServiceApplication.class, args);
+		SpringApplication.run(NamingServerApplication.class, args);
 	}
 
 }
