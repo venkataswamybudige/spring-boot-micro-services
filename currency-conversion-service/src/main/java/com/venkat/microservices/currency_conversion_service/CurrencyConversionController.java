@@ -14,6 +14,8 @@ import java.util.HashMap;
 @RestController
 public class CurrencyConversionController {
 
+    @Autowired
+    public CurrencyExchangeProxy currencyExchangeProxy;
 
     @GetMapping("/currency-conversion/from/{from}/to/{to}/quantity/{quantity}")
     public CurrencyConversion calaculateCurrencyConversion(@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity) {
@@ -25,6 +27,16 @@ public class CurrencyConversionController {
                 "http://localhost:8000/current-exchange/from/{from}/to/{to}", CurrencyConversion.class, uriVariables);
         CurrencyConversion currencyConversion = responseEntity.getBody();
 
+        return new CurrencyConversion(
+                currencyConversion.getId(), from, to, quantity,
+                currencyConversion.getConversionMultiple(),
+                quantity.multiply(currencyConversion.getConversionMultiple()) ,
+                currencyConversion.getEnvironment());
+    }
+
+    @GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
+    public CurrencyConversion calaculateCurrencyConversionUsinFeign(@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity) {
+        CurrencyConversion currencyConversion = currencyExchangeProxy.retriveExchangeValue(from, to);
         return new CurrencyConversion(
                 currencyConversion.getId(), from, to, quantity,
                 currencyConversion.getConversionMultiple(),
